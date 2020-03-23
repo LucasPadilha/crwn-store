@@ -15,29 +15,34 @@ export class Directory extends Component {
                 {
                     id: 1,
                     title: 'Hats',
-                    imageUrl: 'https://i.ibb.co/cvpntL1/hats.png'
+                    imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+                    pathUrl: 'hats'
                 },
                 {
                     id: 2,
                     title: 'Jackets',
-                    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png'
+                    imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+                    pathUrl: 'jackets'
                 },
                 {
                     id: 3,
                     title: 'Sneakers',
-                    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png'
+                    imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                    pathUrl: 'sneakers'
                 },
                 {
                     id: 4,
                     title: 'Womens',
                     imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-                    size: 'large'
+                    size: 'large',
+                    pathUrl: 'womens'
                 },
                 {
                     id: 5,
                     title: 'Mens',
                     imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-                    size: 'large'
+                    size: 'large',
+                    pathUrl: 'mens'
                 }
             ]
         };
@@ -47,9 +52,9 @@ export class Directory extends Component {
         return(
             <div className="directory-menu">
             {
-                this.state.sections.map(({ id, title, imageUrl, size }) => {
+                this.state.sections.map(({ id, ...otherProps }) => {
                     return (
-                        <MenuItem key={ id } imageUrl={ imageUrl } title={ title } size={ size } />
+                        <MenuItem key={ id } { ...otherProps } />
                     );
                 })
             }
